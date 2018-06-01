@@ -28,6 +28,7 @@ PACKAGES = ' \
             ${@bb.utils.contains("MACHINE_FEATURES", "phone", "packagegroup-base-phone", "", d)} \
             ${@bb.utils.contains("MACHINE_FEATURES", "serial", "packagegroup-base-serial", "", d)} \
             ${@bb.utils.contains("MACHINE_FEATURES", "tpm-crb", "packagegroup-base-tpm-crb", "",d)} \
+            ${@bb.utils.contains("MACHINE_FEATURES", "tpm-tis", "packagegroup-base-tpm-tis", "",d)} \
             ${@bb.utils.contains("MACHINE_FEATURES", "usbgadget", "packagegroup-base-usbgadget", "", d)} \
             ${@bb.utils.contains("MACHINE_FEATURES", "usbhost", "packagegroup-base-usbhost", "", d)} \
             \
@@ -61,6 +62,7 @@ RDEPENDS_packagegroup-base = "\
     ${@bb.utils.contains('MACHINE_FEATURES', 'keyboard', 'packagegroup-base-keyboard', '',d)} \
     ${@bb.utils.contains('MACHINE_FEATURES', 'phone', 'packagegroup-base-phone', '',d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "tpm-crb", "packagegroup-base-tpm-crb", "",d)} \
+    ${@bb.utils.contains("MACHINE_FEATURES", "tpm-tis", "packagegroup-base-tpm-tis", "",d)} \
     \
     ${@bb.utils.contains('COMBINED_FEATURES', 'alsa', 'packagegroup-base-alsa', '',d)} \
     ${@bb.utils.contains('COMBINED_FEATURES', 'ext2', 'packagegroup-base-ext2', '',d)} \
@@ -368,4 +370,9 @@ RDEPENDS_packagegroup-base-phone = "\
 SUMMARY_packagegroup-base-tpm-crb = "TPM2 CRB support"
 RRECOMMENDS_packagegroup-base-tpm-crb = "\
     kernel-module-tpm-crb \
+    "
+
+SUMMARY_packagegroup-base-tpm-tis = "TPM2 TIS kernel module"
+RRECOMMENDS_packagegroup-base-tpm-tis = "\
+    kernel-module-tpm-tis \
     "
